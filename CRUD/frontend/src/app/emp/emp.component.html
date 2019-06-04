@@ -1,0 +1,115 @@
+<div style="margin:10rem">
+  <button type="button" class="btn btn-primary" target="_blank" rel="noopener" (click)="showData()">
+    Table Data</button
+  >
+  <button
+    type="button"
+    class="btn btn-primary"
+    style="margin-left:90rem"
+    data-toggle="modal"
+    data-target="#eModal"
+    data-whatever="@fat"
+    (click)="modalData()"
+    >Add</button
+  >
+</div>
+<div class="container" >
+  <table class="table">
+    <thead>
+      <th scope="col" class="text-center">ID</th> <th scope="col" class="text-center">Name</th>
+      <th scope="col" class="text-center">Designation</th>
+      <th scope="col" class="text-center">Department</th>
+      <th scope="col" class="text-center">Location</th>
+      <th scope="col" class="text-center">Reporting</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of data" class="text-center">
+        <td>{{ emp.id }}</td> <td>{{ emp.name }}</td> <td>{{ emp.designation }}</td>
+        <td>{{ emp.department }}</td> <td>{{ emp.location }}</td>
+        <td>{{ emp.reporting_manager }}</td>
+
+        <td>
+          <button class="btn btn-danger" (click)="deleteRow(emp.id)" style="margin-right:1rem">
+            Delete
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-toggle="modal"
+            data-target="#eModal"
+            (click)="editData(emp)"
+            data-whatever="@fat"
+            >Edit</button
+          >
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div
+    class="modal fade"
+    id="eModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update Data</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Name:</label>
+              <input type="text" class="form-control" name="name" [(ngModel)]="temp.name" />
+            </div>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Designation</label>
+              <input
+                type="text"
+                class="form-control"
+                name="desgination"
+                [(ngModel)]="temp.designation"
+              />
+            </div>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Department</label>
+              <input
+                type="text"
+                class="form-control"
+                name="department"
+                [(ngModel)]="temp.department"
+              />
+            </div>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label"> Location </label>
+              <input type="text" class="form-control" name="location" [(ngModel)]="temp.location" />
+            </div>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label"> Reporting Manager </label>
+              <input
+                type="text"
+                class="form-control"
+                name="reporting "
+                [(ngModel)]="temp.reporting_manager"
+              />
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+          <button type="button" class="btn btn-primary" (click)="updateData(temp)"
+            >Update Data</button
+          >
+
+          <button type="button" class="btn btn-primary" (click)="addData()">Add Data</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

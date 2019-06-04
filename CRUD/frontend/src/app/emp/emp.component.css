@@ -1,0 +1,20 @@
+#h {
+  font-size: 20px;
+}
+table {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial,
+    sans-serif;
+  font-size: 15px;
+}
+thead {
+  background-color: rgba(31, 74, 94, 0.685);
+  color: white;
+}
+.carousel-inner {
+  height: 500px;
+}
+.item,
+img {
+  height: 110% !important;
+  width: 100% !important;
+}
