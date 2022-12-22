@@ -15,7 +15,7 @@
     "cors": "^2.8.5",
     "hapi": "^17.8.1",
     "hapi-auth-jwt": "^4.0.0",
-    "jsonwebtoken": "^8.4.0",
+    "jsonwebtoken": "^9.0.0",
     "knex": "^0.16.3",
     "mysql": "^2.16.0"
   }
